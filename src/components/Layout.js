@@ -1,6 +1,7 @@
 
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
+import AppAppBar from "./AppAppBar";
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +18,7 @@ function Layout({ searchNews }) {
 
   return (
     <Paper className={classes.root} elevation={0}>
-      AppAppBAr
+      <AppAppBar/>
     </Paper>
   );
 }
