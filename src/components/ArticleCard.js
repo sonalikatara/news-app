@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
@@ -47,13 +48,17 @@ function ArticleCard(props){
 
     return (
         <Card className={classes.root}>
-            <CardActionArea>
-            <CardMedia
-                style={{ height: 0, paddingTop: '56.25%' }}
-                alt={article.title || 'Untitled'}   
-                image={article.urlToImage}
-                title={article.title || 'Untitled'}
-            />
+            <CardActionArea 
+                target="_blank" 
+                href={article.url}
+            >
+                <CardMedia
+                    style={{ height: 0, paddingTop: '56.25%' }}
+                    alt={article.title || 'Untitled'}   
+                    image={article.urlToImage}
+                    title={article.title || 'Untitled'}
+                
+                />
             </CardActionArea>
             <CardContent className={classes.content}>
                 <Typography gutterBottom variant="h6" className={classes.title}>
@@ -81,7 +86,14 @@ function ArticleCard(props){
             </CardContent>       
             <CardActions
              className={classes.actions}>
-            <Button variant="contained" size="medium" color="primary">
+            <Button 
+                variant="contained" 
+                size="medium" 
+                color="primary" 
+                target="_blank" 
+                href={article.url}
+                >
+
                 Read More
             </Button>
             </CardActions>
