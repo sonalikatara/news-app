@@ -21,6 +21,7 @@ function Layout({ searchNews, news }) {
   return (
     <Paper className={classes.root} elevation={0}>
       <AppAppBar searchNews={searchNews} news={news}/>
+     
       <NewsList news={news} />
     </Paper>
   );
