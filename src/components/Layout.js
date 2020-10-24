@@ -2,6 +2,7 @@
 import Paper from "@material-ui/core/Paper";
 import { makeStyles } from "@material-ui/styles";
 import AppAppBar from "./AppAppBar";
+import NewsList from "./NewsList";
 
 const useStyles = makeStyles({
   root: {
@@ -13,12 +14,14 @@ const useStyles = makeStyles({
     maxWidth: 1210
   }
 });
-function Layout({ searchNews }) {
+
+function Layout({ searchNews, news }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.root} elevation={0}>
-      <AppAppBar/>
+      <AppAppBar searchNews={searchNews} news={news}/>
+      <NewsList news={news} />
     </Paper>
   );
 }

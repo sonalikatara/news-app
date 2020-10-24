@@ -6,7 +6,8 @@ publishedAt = newest articles come first.
 Default: publishedA*/
 
 export const sortBy = [
-    { index: "relevancy", value: "Relevancy" },
-    { index: "popularity", value: "Popularity" },
-    { index: "publishedAt", value: "PublishedAt" }
+    { index: "none", value: "Sort Articles"},
+    { index: "publishedAt", value: "Date" },
+    { index: "relevancy", value: "Relevance" },
+    { index: "popularity", value: "Popularity" },  
   ];
