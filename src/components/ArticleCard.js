@@ -27,6 +27,10 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.text.secondry,
         overflow: 'hidden',
         textAlign: "left",
+       display: "none",
+        [theme.breakpoints.up("sm")]: {
+            display: 'block',
+          }
       },
       
       content: {
