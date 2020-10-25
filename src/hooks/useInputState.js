@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-export default (initialValue)=>{
+/* This hook has functions to manage state and handle changes in the Input ELements of a form */
+
+function InputState(initialValue){
   const [value, setValue] = useState(initialValue);
 
   const handleValueChange = (e) => {
@@ -13,3 +15,4 @@ export default (initialValue)=>{
 
   return [value, handleValueChange, resetValue];
 };
+export default InputState;
