@@ -6,7 +6,7 @@ import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
+//import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import useInputState from "../hooks/useInputState";
@@ -118,13 +118,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar({ searchNews }) {
   const classes = useStyles();
-
   let [sortValue, handleSortChange] = useInputState("publishedAt");
   let [searchTerm, handleSearchChange] = useInputState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-   // searchNews(searchTerm, sortValue);
+    searchNews(searchTerm, sortValue);
   };
+
   return (
     <AppBar
       color="primary"
@@ -165,21 +166,21 @@ export default function NavBar({ searchNews }) {
                   // width="100%"
                 >
                   <div className={classes.sortContainer}>
-                    <InputLabel
+                    {/*<InputLabel
                       id="sort-articles-label"
                       className={classes.lightText}
                     >
                       Sort Articles
-                    </InputLabel>
+                    </InputLabel>*/}
                     <Select
-                      labelId="sort-articles-label"
+                      //labelId="sort-articles-label"
                       id="dsort-articles"
                       value={sortValue}
                       className={classes.lightText}
                       onChange={handleSortChange}
                     >
-                      {sortBy.map((option) => (
-                        <MenuItem key={option.index} value={option.index}>
+                      {sortBy.map((option, index) => (
+                        <MenuItem key={option.index+index} value={option.index}>
                           {option.value}
                         </MenuItem>
                       ))}
