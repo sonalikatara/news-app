@@ -23,15 +23,22 @@ const useStyles = makeStyles(theme => ({
   }));
 
  function NewsList(props){
-    const { news } = props;
+    const { news , searchTerm} = props;
     const classes = useStyles();
+    let noArticlesMsg = "";
+
+    if (!news)
+        noArticlesMsg = "Search for articles by a search string.";
+    else if(news.length ===0)
+        noArticlesMsg = "No articles for your search at the moment."
+
     return(
         <Container className={classes.news} maxWidth="md" >
-            { !news  && (
+            { noArticlesMsg.length > 0  && (
                 <Typography color={"textSecondary"} className={classes.center}>
-                     No news results at the moment.
+                    {noArticlesMsg}
                 </Typography>
-            )}
+            )}     
 
             <Grid container spacing={4} >
                 {news && 

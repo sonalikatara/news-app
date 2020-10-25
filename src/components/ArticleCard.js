@@ -6,8 +6,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
+import PlaceholderImg from '../media/news.svg';
 
 const useStyles = makeStyles(theme => ({
     
@@ -56,13 +56,14 @@ function ArticleCard(props){
                 target="_blank" 
                 href={article.url}
             >
+        
                 <CardMedia
                     style={{ height: 0, paddingTop: '56.25%' }}
                     alt={article.title || 'Untitled'}   
-                    image={article.urlToImage}
+                    image={ article.urlToImage ? article.urlToImage : PlaceholderImg}
                     title={article.title || 'Untitled'}
-                
                 />
+        
             </CardActionArea>
             <CardContent className={classes.content}>
                 <Typography gutterBottom variant="h6" className={classes.title}>
@@ -74,7 +75,7 @@ function ArticleCard(props){
                 align="left" 
                 color="secondary"
                 >
-                 {article.publishedAt.substring(0, 10)}
+                 {new Date(article.publishedAt).toString().slice(4,15)}
                 </Typography>
                 <Typography 
                  className={classes.description}

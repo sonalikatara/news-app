@@ -12,25 +12,22 @@ function App() {
   // searchNews gets the search results on the searchQuery query sorted by SortBy Top headlines 
   // if there is no search query it gets the top headlines
 
-  const searchNews = async (searchQuery, sortBy) => {  
-      const everythingNewsUrl =
-        `https://newsapi.org/v2/everything?q=${searchQuery}&sortBy=${sortBy}&language=en&apiKey=${process.env.NEWS_API_KEY}`;
-      
-      const topHeadlinesUrl =  'https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=1281b5754f724b7081e105c2e75f8d67';
-      
-      let newsUrl = searchQuery.length > 0 ? everythingNewsUrl:topHeadlinesUrl;
+  const searchNews = async (searchQuery, sortBy) => {   
       //console.log("searchQuery :", searchQuery, "sortBy : ", sortBy,"newsUrl ::", newsUrl);
-      
-      await fetch(newsUrl)
-      .then((response) => response.json())
-      .then((data) => setNews(data.articles))
-      .catch((error) => console.log("Authorization failed : " + error.message));
+      if(searchQuery && searchQuery.length > 0 ){
+        const everythingNewsUrl =
+        `https://newsapi.org/v2/everything?q=${searchQuery}&sortBy=${sortBy}&language=en&apiKey=1281b5754f724b7081e105c2e75f8d67`;
+        await fetch(everythingNewsUrl)
+        .then((response) => response.json())
+        .then((data) => setNews(data.articles))
+        .catch((error) => console.log("Authorization failed : " + error.message));
+      } else {
+        setNews([]);
+      }
+     
   };
   
-  // on Initial Load since we have no search query 
-  // get the topHeadlines 
-  searchNews("","");
-  let initialNews =  [
+  /*let initialNews =  [
     {
     "source": {
     "id": "techcrunch",
@@ -291,11 +288,11 @@ function App() {
     "publishedAt": "2020-10-09T04:46:00Z",
     "content": null
     }
-    ]
+    ]*/
   return (
     <div className="App">
     <ThemeProvider theme={theme}>
-      <Layout searchNews={searchNews} news={initialNews}/>
+      <Layout searchNews={searchNews} news={news}/>
     </ThemeProvider>
   </div>
   );
