@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar({ searchNews }) {
   const classes = useStyles();
-  let [sortValue, handleSortChange] = useInputState("");
+  let [sortValue, handleSortChange] = useInputState("none");
   let [searchTerm, handleSearchChange] = useInputState("");
 
   const handleSubmit = (e) => {
@@ -130,6 +130,7 @@ export default function NavBar({ searchNews }) {
     searchNews(searchTerm, sortValue);
     handleSortChange(e);
   }
+
   return (
     <AppBar
       color="primary"
@@ -185,7 +186,7 @@ export default function NavBar({ searchNews }) {
                     >
                       {sortBy.map((option, index) => (
                         <MenuItem key={option.index+index} value={option.index}>
-                          {option.value}
+                          { option.value }
                         </MenuItem>
                       ))}
                     </Select>

@@ -15,13 +15,13 @@ const useStyles = makeStyles({
   }
 });
 
-function Layout({ searchNews, news }) {
+function Layout({ searchNews, news, isLoading }) {
   const classes = useStyles();
 
   return (
     <Paper className={classes.root} elevation={0}>
       <AppAppBar searchNews={searchNews} news={news}/> 
-      <NewsList news={news} />
+      <NewsList news={news} isLoading={isLoading}/>
     </Paper>
   );
 }

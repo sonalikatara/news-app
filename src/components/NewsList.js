@@ -23,20 +23,26 @@ const useStyles = makeStyles(theme => ({
   }));
 
  function NewsList(props){
-    const { news } = props;
+    const { news, isLoading } = props;
     const classes = useStyles();
     let noArticlesMsg = "";
 
     // on first load ask the user to add a search string to get Articles
     // Inform the user if there are no articles for the enteered search term 
     if (!news)
-        noArticlesMsg = "Search for articles by a search string.";
+        noArticlesMsg = "Welcome to search! Search for articles by a search string.";
     else if(news.length === 0)
         noArticlesMsg = "No articles for your search at the moment."
 
     return(
-        <Container className={classes.news} maxWidth="md" >
-           
+        <Container className={classes.news} maxWidth="md" >  
+            {
+                (isLoading===true)&&
+                    <Typography color={"textSecondary"} className={classes.center}>
+                        Loading
+                    </Typography>
+                  
+            }
             { noArticlesMsg.length > 0  && (
                 <Typography color={"textSecondary"} className={classes.center}>
                     {noArticlesMsg}
