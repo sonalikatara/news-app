@@ -7,6 +7,7 @@
   - The homepage of the app is simply a search bar and a welcome message
   - Search results show the image, title, publish date, description and the url (as 'Read More' button) of the articles
   - Clicking the image or the 'Read More' button will open the article in a new tab 
+  - If  there is no image returned by the api, it displays a placeholder image
   - The app is mobile responsive! 
      - For smaller screen sizes,
         -  it shows articles in a single column 
@@ -17,8 +18,8 @@
    ![With Search Results](ScreenShot.png)
 
 # Implementation
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
- [Material-ui] (https://material-ui.com/) and CSS are used to create styled React components. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+ [Material-ui](https://material-ui.com/) theme and CSS are used to create styled React components.\
  Jest is used to test the project.
 
 # Runing the Project
@@ -36,18 +37,18 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
 
 ## How I might improve the project
-I tried implement the design and features requested
-These are the things that I might improve on this project
+I decided to implement the design and features as requested in the assignment.
+These are the things that I might do to improve on this project
 
-- Add more test cases to test that the correct search results show when the search term or the article sorting options are changed
+- Add more test cases  for example one to test that the correct search results show when the search term or the article sorting options are changed.
 
 - Make the web app progressive by caching assets in the local storage.
 
-- The design for smaller screens can be improved for better user experince, I might bring the selection for sorting articles right below the AppBar and see if that makes the user experience better. This will involvee discussion with thee design team.
+- The design for smaller screens can be improved for better user experince, I might bring the selection box for sorting articles right below the AppBar and see if that makes the user experience better. This will involvendiscussion with thee design team.
 
 - There is an option to add infinite scroling or pagination to the page.
 
-- I would improve the assesibility of the application, like the contrast ratio of the  curent designn can be improved.
+- I would improve the assesibility of the application, like the contrast ratio of the  curent design can be improved.
