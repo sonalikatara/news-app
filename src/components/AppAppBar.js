@@ -6,11 +6,10 @@ import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuItem from "@material-ui/core/MenuItem";
-//import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import useInputState from "../hooks/useInputState";
-import { sortBy } from "../common";
+import { sortBy } from "../constants";
 
 const useStyles = makeStyles((theme) => ({
   appBarContainer: {
@@ -40,9 +39,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
 
     [theme.breakpoints.up("sm")]: {
-      //marginLeft: theme.spacing(3),
       width: "60%",
-      //border: "solid pink 2px",
       height: 36,
       margin: "auto",
       marginLeft: 0,
@@ -51,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       marginLeft: theme.spacing(4),
       width: "60%",
-      //border: "solid green 2px",
       height: 36,
       margin: "auto",
       marginRight: 0
@@ -84,10 +80,8 @@ const useStyles = makeStyles((theme) => ({
   searchOptions: {
     width: "100%",
     marginRight: theme.spacing(2),
-    //border: "solid red 2px",
     [theme.breakpoints.up("sm")]: {
       width: "38%",
-      //border: "solid white 2px",
       marginRight: 0
     },
     [theme.breakpoints.up("md")]: {
@@ -95,7 +89,6 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(4),
       marginLeft: 0,
       width: "30%"
-      //border: "solid black 2px"
     }
   },
 
@@ -118,13 +111,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function NavBar({ searchNews }) {
   const classes = useStyles();
-  let [sortValue, handleSortChange] = useInputState("publishedAt");
+  let [sortValue, handleSortChange] = useInputState("none");
   let [searchTerm, handleSearchChange] = useInputState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     searchNews(searchTerm, sortValue);
   };
+
+  const handleSortByChange = (e) => {
+    handleSortChange(e);
+    searchNews(searchTerm, sortValue); 
+  }
 
   return (
     <AppBar
@@ -147,7 +145,7 @@ export default function NavBar({ searchNews }) {
                 <SearchIcon />
               </div>
               <InputBase
-                placeholder="Search…"
+                placeholder="Enter a Search term to start your search ..."
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput
@@ -162,26 +160,18 @@ export default function NavBar({ searchNews }) {
                 <Box
                   display="flex"
                   flexWrap="no-wrap"
-                  justifyContent="space-around"
-                  // width="100%"
+                  justifyContent="space-around"                  
                 >
-                  <div className={classes.sortContainer}>
-                    {/*<InputLabel
-                      id="sort-articles-label"
-                      className={classes.lightText}
-                    >
-                      Sort Articles
-                    </InputLabel>*/}
+                  <div className={classes.sortContainer} >     
                     <Select
-                      //labelId="sort-articles-label"
                       id="dsort-articles"
                       value={sortValue}
                       className={classes.lightText}
-                      onChange={handleSortChange}
+                      onChange={(e) => handleSortByChange(e)}
                     >
                       {sortBy.map((option, index) => (
                         <MenuItem key={option.index+index} value={option.index}>
-                          {option.value}
+                          { option.value }
                         </MenuItem>
                       ))}
                     </Select>
