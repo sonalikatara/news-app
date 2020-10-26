@@ -1,25 +1,25 @@
 ## news-app . 
- A news search app using [NewsAPI](https://newsapi.org)! The goal is to create a static application with HTML5, CSS3 and Javascript. 
+ A news search app using [NewsAPI](https://newsapi.org)! The goal is to create a static application with HTML5, CSS3, and Javascript. 
 
  ## Features
   This application lets the user:
   - Search for articles (in language 'en') by a search string 
   - The homepage of the app is simply a search bar and a welcome message
-  - Search results show the image, title, publish date, description and the url (as 'Read More' button) of the articles
+  - Search results show the image, title, publish date, description, and the URL (as 'Read More' button) of the articles
   - Clicking the image or the 'Read More' button will open the article in a new tab 
-  - If  there is no image returned by the api, it displays a placeholder image
+  - If  there is no image returned by the API, it displays a placeholder image
   - The app is mobile responsive! 
      - For smaller screen sizes,
         -  it shows articles in a single column 
-        -  it hide the article description
+        -  it hides the article description
      - For screen medium and large screens
-        -  it shows articles in a two column   
+        -  it shows articles in two columns   
   - Here is the screenshot of the app
    ![With Search Results](ScreenShot.png)
 
 # Implementation
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
- [Material-ui](https://material-ui.com/) theme and CSS are used to create styled React components.\
+ [Material-UI](https://material-ui.com/) theme and CSS are used to create styled React components.\
  Jest is used to test the project.
 
 # Runing the Project
@@ -47,8 +47,8 @@ These are the things that I might do to improve on this project
 
 - Make the web app progressive by caching assets in the local storage.
 
-- The design for smaller screens can be improved for better user experince, I might bring the selection box for sorting articles right below the AppBar and see if that makes the user experience better. This will involvendiscussion with thee design team.
+- The design for smaller screens can be improved for a better user experience, I might bring the selection box for sorting articles right below the AppBar and see if that makes the user experience better. This will involve discussion with the design team.
 
-- There is an option to add infinite scroling or pagination to the page.
+- There is an option to add infinite scrolling or pagination to the page.
 
-- I would improve the assesibility of the application, like the contrast ratio of the  curent design can be improved.
+- I would improve the accessibility of the application, like the contrast ratio of the current design, can be improved.
