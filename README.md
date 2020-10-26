@@ -18,8 +18,8 @@
    ![With Search Results](ScreenShot.png)
 
 # Implementation
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
- [Material-ui] (https://material-ui.com/) and CSS are used to create styled React components. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
+ [Material-ui](https://material-ui.com/) theme and CSS are used to create styled React components.\
  Jest is used to test the project.
 
 # Runing the Project
@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
+Launches the test runner in the interactive watch mode.
 
 ## How I might improve the project
 I decided to implement the design and features as requested in the assignment.
