@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
             {
                 (isLoading===true)&&
                     <Typography color={"textSecondary"} className={classes.center}>
-                        Loading
+                        Loading News
                     </Typography>
                   
             }
