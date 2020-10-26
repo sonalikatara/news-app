@@ -40,7 +40,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 Launches the test runner in the interactive watch mode.
 
 ## How I might improve the project
-I decided to implement the design and features as requested in the assignment.
+
 These are the things that I might do to improve on this project
 
 - Add more test cases  for example one to test that the correct search results show when the search term or the article sorting options are changed.
