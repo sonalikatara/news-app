@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
                     </Typography>
                   
             }
-            { noArticlesMsg.length > 0  && (
+            { !isLoading && noArticlesMsg.length > 0  && (
                 <Typography color={"textSecondary"} className={classes.center}>
                     {noArticlesMsg}
                 </Typography>

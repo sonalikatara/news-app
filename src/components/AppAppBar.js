@@ -110,6 +110,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// the top nav that has the search term input control and sorting options
 export default function NavBar({ searchNews }) {
   const classes = useStyles();
   let [sortValue, handleSortChange] = useInputState("none");
