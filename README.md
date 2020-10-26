@@ -1,4 +1,4 @@
-## news-app .  Dia&Co. Engineering Team Homework
+## news-app . 
  A news search app using [NewsAPI](https://newsapi.org)! The goal is to create a static application with HTML5, CSS3 and Javascript. 
 
  ## Features
