@@ -1,71 +1,49 @@
-# Getting Started with Create React App
+## news-app .  Dia&Co. Engineering Team Homework
+ A news search app using [NewsAPI](https://newsapi.org)! The goal is to create a static application with HTML5, CSS3 and Javascript. 
 
+ ## Features
+  This application lets the user:
+  - Search for articles (in language 'en') by a search string 
+  - The homepage of the app is simply a search bar and a welcome message
+  - Search results show the image, title, publish date, description and the url (as 'Read More' button) of the articles
+  - Clicking the image or the 'Read More' button will open the article in a new tab 
+  - The app is mobile responsive! 
+     - For smaller screen sizes,
+        -  it shows articles in a single column 
+        -  it hide the article description
+     - For screen medium and large screens
+        -  it shows articles in a two column   
+  - Here is the screenshot of the app
+   ![With Search Results](ScreenShot.png)
+
+# Implementation
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [Material-ui] (https://material-ui.com/) and CSS are used to create styled React components. 
+ Jest is used to test the project.
 
-## Available Scripts
+# Runing the Project
 
 In the project directory, you can run:
 
 ### `yarn start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser
 
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## How I might improve the project
+I tried implement the design and features requested
+These are the things that I might improve on this project
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add more test cases to test that the correct search results show when the search term or the article sorting options are changed
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Make the web app progressive by caching assets in the local storage.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The design for smaller screens can be improved for better user experince, I might bring the selection for sorting articles right below the AppBar and see if that makes the user experience better. This will involvee discussion with thee design team.
 
-### `yarn eject`
+- There is an option to add infinite scroling or pagination to the page.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# news-app
+- I would improve the assesibility of the application, like the contrast ratio of the  curent designn can be improved.

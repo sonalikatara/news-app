@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
 import Box from "@material-ui/core/Box";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
+import NativeSelect from "@material-ui/core/NativeSelect";
 import Button from "@material-ui/core/Button";
+import FormControl from '@material-ui/core/FormControl';
+import FormHelperText from '@material-ui/core/FormHelperText';
 import useInputState from "../hooks/useInputState";
 import { sortBy } from "../constants";
 
@@ -109,6 +110,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// the top nav that has the search term input control and sorting options
 export default function NavBar({ searchNews }) {
   const classes = useStyles();
   let [sortValue, handleSortChange] = useInputState("none");
@@ -119,10 +121,15 @@ export default function NavBar({ searchNews }) {
     searchNews(searchTerm, sortValue);
   };
 
-  const handleSortByChange = (e) => {
-    handleSortChange(e);
-    searchNews(searchTerm, sortValue); 
-  }
+  const isFirstRun = useRef(true);
+  useEffect(() => {
+    if (isFirstRun.current) {
+      // skip useEffect on First run
+      isFirstRun.current = false;
+      return;
+    }
+    searchNews(searchTerm, sortValue);
+  },[sortValue]);
 
   return (
     <AppBar
@@ -162,29 +169,33 @@ export default function NavBar({ searchNews }) {
                   flexWrap="no-wrap"
                   justifyContent="space-around"                  
                 >
-                  <div className={classes.sortContainer} >     
-                    <Select
-                      id="dsort-articles"
-                      value={sortValue}
-                      className={classes.lightText}
-                      onChange={(e) => handleSortByChange(e)}
+                  <div className={classes.sortContainer} >   
+                    <FormControl> 
+                      <NativeSelect
+                        id="dsort-articles"
+                        value={sortValue}
+                        className={classes.lightText}
+                        onChange={handleSortChange}
+                        inputProps={{ "aria-label": "sort articles" }}
+                      >
+                        {sortBy.map((option, index) => (
+                          <option key={option.index+index} value={option.index}>
+                            { option.value }
+                          </option>
+                        ))}
+                      </NativeSelect>
+                      <FormHelperText className={classes.lightText}>Sort Articles</FormHelperText>
+                    </FormControl> 
+                   </div>
+                    <Button
+                      variant="contained"
+                      type="submit"
+                      fullWidth
+                      color="secondary"
+                      className={classes.btnSubmit}
                     >
-                      {sortBy.map((option, index) => (
-                        <MenuItem key={option.index+index} value={option.index}>
-                          { option.value }
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </div>
-                  <Button
-                    variant="contained"
-                    type="submit"
-                    fullWidth
-                    color="secondary"
-                    className={classes.btnSubmit}
-                  >
-                    Search
-                  </Button>
+                      Search
+                    </Button>
                 </Box>
               </div>
             </div>

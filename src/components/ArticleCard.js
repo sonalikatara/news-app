@@ -9,8 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import PlaceholderImg from '../media/news.svg';
 
-const useStyles = makeStyles(theme => ({
-    
+const useStyles = makeStyles(theme => ({    
       root: {
         height: '100%',
         display: 'flex',
@@ -23,6 +22,7 @@ const useStyles = makeStyles(theme => ({
         overflow: 'hidden',
         textAlign: "left",
       },
+
       description: {
         color: theme.palette.text.secondry,
         overflow: 'hidden',
@@ -46,24 +46,23 @@ const useStyles = makeStyles(theme => ({
         
       },
   }));
-function ArticleCard(props){
-    const { article} = props; 
+
+//shows the image, title, publish date, description and the url (as 'Read More' button) of the articles
+function ArticleCard({ article}){
     const classes = useStyles();
 
     return (
         <Card className={classes.root}>
             <CardActionArea 
                 target="_blank" 
-                href={article.url}
+                href={article.url}  // Clicking the image will open the article in a new tab
             >
-        
                 <CardMedia
                     style={{ height: 0, paddingTop: '56.25%' }}
                     alt={article.title || 'Untitled'}   
                     image={ article.urlToImage ? article.urlToImage : PlaceholderImg}
                     title={article.title || 'Untitled'}
-                />
-        
+                />       
             </CardActionArea>
             <CardContent className={classes.content}>
                 <Typography gutterBottom variant="h6" className={classes.title}>
@@ -96,7 +95,7 @@ function ArticleCard(props){
                 size="medium" 
                 color="primary" 
                 target="_blank" 
-                href={article.url}
+                href={article.url}   //Clicking the 'Read More' button will open the article in a new tab
                 >
 
                 Read More
